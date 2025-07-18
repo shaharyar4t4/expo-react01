@@ -1,12 +1,13 @@
-import { Button, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View, } from "react-native";
-
+import Counter from "@/components/counter";
+import { Button, Pressable, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 
 export default function RootLayout() {
 
    return (
+      
       <View style={style.container}>
-         {/* <ScrollView  contentContainerStyle={{paddingBottom:10}}/> */}
+         <ScrollView contentContainerStyle={{paddingBottom:100}}>
          <View style={style.mainbox}>
             <Text style={style.subtext}>Expo React Native Class 01</Text>
          </View>
@@ -36,8 +37,17 @@ export default function RootLayout() {
                placeholderTextColor={"#888"}
 
             />
+
+            <View style={{padding: 10,}}>
+               <Counter/>
+               <Counter/>
+               <Counter/>
+               <Counter/>
+               <Counter/>
+            </View>
             
          </View>
+         </ScrollView>
       </View>
    );
 
