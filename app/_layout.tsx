@@ -1,4 +1,4 @@
-import { Button, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Button, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View, } from "react-native";
 
 
 
@@ -36,7 +36,7 @@ export default function RootLayout() {
                placeholderTextColor={"#888"}
 
             />
-
+            
          </View>
       </View>
    );
@@ -107,6 +107,6 @@ const style = StyleSheet.create({
       borderColor: "#888",
       padding: 10,
       fontSize: 16,
-      margin:10
+      margin: 10
    }
 });
