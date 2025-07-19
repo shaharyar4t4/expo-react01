@@ -1,4 +1,5 @@
 import Counter from "@/components/counter";
+import Detial from "@/components/detial";
 import { Button, Pressable, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 
@@ -41,9 +42,7 @@ export default function RootLayout() {
             <View style={{padding: 10,}}>
                <Counter/>
                <Counter/>
-               <Counter/>
-               <Counter/>
-               <Counter/>
+               <Detial/>
             </View>
             
          </View>
