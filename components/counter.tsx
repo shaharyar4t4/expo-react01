@@ -5,7 +5,7 @@ const Counter = () => {
 
   // this hook which is used in react native
   const [counter, setCounter] = useState<number>(0);
-  const [name, setName] = useState<String>("Shaharyar");
+  // const [name, setName] = useState<String>("Shaharyar");
   // this function which is show how to create a proper increament number
   const increament =(): void =>{
      setCounter(counter + 1);
@@ -38,3 +38,7 @@ const style = StyleSheet.create({
      marginVertical: 10,
     }
 })
+
+
+//props 
+// this is helps to make a variable is dynamic mostly it is used for take a developer item and show in ui
