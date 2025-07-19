@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 
-const Counter = () => {
+interface Iprops{
+  defealtValue: number,
 
+}
+// const Counter = (props: Iprops) => {
+
+  const Counter: React.FC<Iprops> = (props) => {
   // this hook which is used in react native
   const [counter, setCounter] = useState<number>(0);
   // const [name, setName] = useState<String>("Shaharyar");

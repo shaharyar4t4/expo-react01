@@ -40,8 +40,8 @@ export default function RootLayout() {
             />
 
             <View style={{padding: 10,}}>
-               <Counter/>
-               <Counter/>
+               <Counter  defealtValue={10}/>
+               <Counter defealtValue={20}/>
                <Detial/>
             </View>
             
