@@ -8,7 +8,7 @@ export default function RootLayout() {
    return (
       
       <View style={style.container}>
-         <ScrollView contentContainerStyle={{paddingBottom:100}}>
+         <ScrollView contentContainerStyle={{paddingBottom:250}}>
          <View style={style.mainbox}>
             <Text style={style.subtext}>Expo React Native Class 01</Text>
          </View>
@@ -40,8 +40,8 @@ export default function RootLayout() {
             />
 
             <View style={{padding: 10,}}>
-               <Counter  defealtValue={10}/>
-               <Counter defealtValue={20}/>
+               <Counter  defealtValue={10} title={"start with 10"}/>
+               <Counter defealtValue={20} title={"Start with 20"}/>
                <Detial/>
             </View>
             

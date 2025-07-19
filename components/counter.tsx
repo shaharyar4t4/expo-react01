@@ -3,13 +3,14 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 
 interface Iprops{
   defealtValue: number,
+  title: string,
 
 }
 // const Counter = (props: Iprops) => {
 
   const Counter: React.FC<Iprops> = (props) => {
   // this hook which is used in react native
-  const [counter, setCounter] = useState<number>(0);
+  const [counter, setCounter] = useState<number>(props.defealtValue);
   // const [name, setName] = useState<String>("Shaharyar");
   // this function which is show how to create a proper increament number
   const increament =(): void =>{
@@ -22,7 +23,7 @@ interface Iprops{
 
   return (
     <View style = {style.continer}>
-        <Text>Counter: {counter}</Text>
+        <Text>Counter: {props.title} to {counter} </Text>
         <View style={style.btn}>
         <Button title='Increament'onPress={increament}/>
         <Button title='Decreament' onPress={decreament} color="red"/>
