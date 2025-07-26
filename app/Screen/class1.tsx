@@ -2,7 +2,7 @@ import Counter from "@/components/counter";
 import Detial from "@/components/detial";
 import { Button, Pressable, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
-export const HomeScreen = () => {
+export const Class1 = () => {
   return (
           <View style={style.container}>
          <ScrollView contentContainerStyle={{paddingBottom:250}}>

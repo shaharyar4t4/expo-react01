@@ -1,10 +1,10 @@
-import { HomeScreen } from "./home/home_screen";
+import { Class1 } from "./Screen/class1";
 
 
 export default function RootLayout() {
 
    return (
-      <HomeScreen/>
+      <Class1/>
    );
 
 }
