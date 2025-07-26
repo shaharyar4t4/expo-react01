@@ -16,7 +16,7 @@ export const HomeScreen = () => {
          </View>
          <View >
             {/*this button is not multiple customise things */}
-            <Button title="Submit" onPress={() => console.log("Shaharyar")} color={"blue"} />
+            <Button  title="Submit" onPress={() => console.log("Shaharyar")} color={"blue"} />
             <TouchableOpacity style={style.btnstyle}>
                <Text style={style.plaintxt}>Touchable Opacity</Text>
             </TouchableOpacity>
