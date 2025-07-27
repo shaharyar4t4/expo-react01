@@ -1,9 +1,11 @@
-import MainLayout from '@/components/mainLayout'
-import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import MainLayout from '@/components/mainLayout';
+import Fontisto from '@expo/vector-icons/Fontisto';
+import React, { useState } from 'react';
+import { Image, StyleSheet, Switch, Text, TouchableOpacity, View } from 'react-native';
 
 
 export const Class2 = () => {
+  const [checked, setchecked] = useState<boolean>(false);
   return (
     // mainlayout is used to provide a consistent layout structure across the app this content for every screen 
     <MainLayout>
@@ -15,11 +17,29 @@ export const Class2 = () => {
         </View>
         <View style={style.card}>
           <Image style={style.imgContainer} source={{ uri: "https://upload.wikimedia.org/wikipedia/commons/5/58/AcetoFive.JPG" }} resizeMode="contain" />
-          <View>
-            <Text style={style.cardContent}>Card</Text>
+          <View style={style.cardContent}>
+            <Text>Card</Text>
+            {
+              checked ?
+                <TouchableOpacity onPress={() => setchecked(false)}>
+                  <Fontisto name="checkbox-passive" size={24} color="black" />
+                </TouchableOpacity> :
+                <TouchableOpacity onPress={() => setchecked(true)}>
+                  <Fontisto name="checkbox-active" size={24} color="black" />
+                </TouchableOpacity>
+            }
+
           </View>
         </View>
-
+        <View style={{ alignItems: "center" }}>
+          <Switch
+            value={checked}
+            onValueChange={(value) => setchecked(value)}
+            trackColor={{ true: "lightgreen", false: "pink" }}
+            thumbColor={checked ? "green" : "red"}
+            style={{ transform: [{ scale: 2 }] }}
+          />
+        </View>
       </View>
     </MainLayout>
   )
@@ -45,8 +65,8 @@ const style = StyleSheet.create({
   },
   cardContent: {
     padding: 10,
-    // flexDirection: "row",
-    // justifyContent: "space-between"
+    flexDirection: "row",
+    justifyContent: "space-between"
   },
 
 })
