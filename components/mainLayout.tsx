@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 
-import { StatusBar } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 type MainLayoutProps = PropsWithChildren<{
@@ -14,7 +14,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         // SafeAreaView is used to render content within the safe area boundaries
         <SafeAreaProvider>
             <SafeAreaView style={{ flex: 1, }} edges={['top', 'left', 'right']}>
-                <StatusBar barStyle="light-content" backgroundColor="black" />
+                <StatusBar style="dark" />
                 {children}
             </SafeAreaView>
         </SafeAreaProvider>
