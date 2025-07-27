@@ -6,13 +6,13 @@ type MainLayoutProps = PropsWithChildren<{
 
 }>;
 
-const mainLayout: React.FC<MainLayoutProps> = ({children}) => {
+const MainLayout: React.FC<MainLayoutProps> = ({children}) => {
   return (
         // this particular is same for every mobile platform
         // safeAreaProvider is used to handle the safe area insets on devices with notches or rounded corners
         // SafeAreaView is used to render content within the safe area boundaries
         <SafeAreaProvider>
-            <SafeAreaView edges={['top', 'left', 'right']}>
+            <SafeAreaView style={{flex:1}}edges={['top', 'left', 'right']}>
                 {/* StatusBar is used to control the appearance of the status bar */}
                 <StatusBar hidden={true} />
                 {children}
@@ -21,5 +21,5 @@ const mainLayout: React.FC<MainLayoutProps> = ({children}) => {
   )
 }
 
-export default mainLayout
+export default MainLayout;
 
