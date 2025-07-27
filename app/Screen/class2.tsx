@@ -1,5 +1,5 @@
 import React from 'react'
-import { StatusBar, StyleSheet, Text, View } from 'react-native'
+import { StatusBar, StyleSheet } from 'react-native'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 
 export const Class2 = () => {
@@ -10,16 +10,12 @@ export const Class2 = () => {
     <SafeAreaProvider>
      <SafeAreaView style={style.container} edges={['top', 'left', 'right']}>
       {/* StatusBar is used to control the appearance of the status bar */}
-      <StatusBar hidden={true}/>
-      <View >
-        <Text style={style.txt}>Hello</Text>
-    </View>
+      <StatusBar hidden ={true}/>
      </SafeAreaView>
     </SafeAreaProvider>
     
   )
 }
-
 const style = StyleSheet.create({
   container:{
     flex:0.2,
