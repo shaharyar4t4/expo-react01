@@ -1,6 +1,6 @@
 import MainLayout from '@/components/mainLayout'
 import React from 'react'
-import { Image, StyleSheet, View } from 'react-native'
+import { Image, StyleSheet, Text, View } from 'react-native'
 
 
 export const Class2 = () => {
@@ -11,8 +11,15 @@ export const Class2 = () => {
         {/* <Text style={style.txt}>Hello</Text> */}
 
         <View>
-          <Image source={require("../../assets/images/react-logo.png")} style={{ width: 100, height: 100 }} resizeMode="contain"/>
+          <Image source={require("../../assets/images/react-logo.png")} style={{ width: 100, height: 100 }} resizeMode="contain" />
         </View>
+        <View style={style.card}>
+          <Image style={style.imgContainer} source={{ uri: "https://upload.wikimedia.org/wikipedia/commons/5/58/AcetoFive.JPG" }} resizeMode="contain" />
+          <View>
+            <Text style={style.cardContent}>Card</Text>
+          </View>
+        </View>
+
       </View>
     </MainLayout>
   )
@@ -27,7 +34,19 @@ const style = StyleSheet.create({
   },
   txt: {
     color: "#000",
-    
-  }
+
+  },
+  card: {
+    borderWidth: 1,
+    margin: 10
+  },
+  imgContainer: {
+    height: 200
+  },
+  cardContent: {
+    padding: 10,
+    // flexDirection: "row",
+    // justifyContent: "space-between"
+  },
 
 })
