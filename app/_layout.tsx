@@ -1,10 +1,11 @@
-import { Class1 } from "./Screen/class1";
+import { Class2 } from "./Screen/class2";
 
 
 export default function RootLayout() {
 
    return (
-      <Class1/>
+      // <Class1/>
+      <Class2/>
    );
 
 }
