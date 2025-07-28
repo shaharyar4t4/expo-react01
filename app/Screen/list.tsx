@@ -1,6 +1,6 @@
 import MainLayout from '@/components/mainLayout';
 import React, { useState } from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { SectionList, StyleSheet, Text, View } from 'react-native';
 
 
 
@@ -27,7 +27,15 @@ const List = () => {
       setLoader(false);
 
     }, 2000);
+
   }
+   const sections = [
+        {category: "Fruits", data: ["Apple", "Mango", "Banana", "Grapes", "Oranges"]},
+        {category: "Vegatables", data: ["Apple", "Mango", "Banana", "Tomato"]},
+        {category: "Dry Fruits", data: ["Apple", "Mango", "Banana"]},
+        {category: "Drinks", data: ["Apple", "Mango", "Banana"]},
+        {category: "Fast Food", data: ["Apple", "Mango", "Banana"]},
+    ]
 
 
   return (
@@ -48,8 +56,11 @@ const List = () => {
         ))
       }
      </ScrollView> */}
+
+
+
       {/*Flat List*/}
-      <View>
+      {/* <View>
         <FlatList
           data={items}
 
@@ -66,8 +77,32 @@ const List = () => {
           ListFooterComponent={<Text>Completed</Text>}
           onEndReached={refreshcontrol}
         />
-      </View>
+      </View> */}
 
+
+      {/*Selection List*/}
+        <View>
+            <SectionList 
+              // just collect the data
+                sections={sections}
+              // identify the unique ID
+                keyExtractor={(item, index)=> item+index}
+              // help to render the list
+                renderItem={({item})=>(
+                    <View style={style.item}>
+                        <Text>{item}</Text>
+                    </View>
+                )}  
+              // mention the Category of any items
+                renderSectionHeader={({ section:{category} }) =>(
+                        <View style={style.header}>
+                            <Text style={style.headerText}> {category} </Text>
+                        </View>
+                )}
+              // stuck the header
+                stickySectionHeadersEnabled={true}
+            />
+        </View>
     </MainLayout>
   )
 }
@@ -87,5 +122,19 @@ const style = StyleSheet.create({
     fontSize: 18,
     textAlign: "center",
     justifyContent: "center",
-  }
+  },
+    item:{
+        padding:16,
+        backgroundColor:"#c4c4c4",
+        borderBottomWidth:1,
+        borderColor:"#ddd"
+    },
+    header:{
+        backgroundColor:"grey",
+        padding:10
+    },
+    headerText:{
+        fontSize:18,
+        fontWeight:"bold"
+    }
 })
