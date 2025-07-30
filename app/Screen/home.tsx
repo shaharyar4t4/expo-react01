@@ -22,7 +22,7 @@ const Home = ({navigation}: PropsType) => {
 }
 
 export default Home
-
+ 
 const style= StyleSheet.create({
   container: {
     flex: 1,

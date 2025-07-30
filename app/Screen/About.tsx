@@ -1,16 +1,36 @@
-import MainLayout from '@/components/mainLayout'
-import React from 'react'
-import { Text, View } from 'react-native'
+import MainLayout from '@/components/mainLayout';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import React from 'react';
 
-const About = () => {
-  return (
-     <MainLayout>
-    <View>
-        <Text style= {{backgroundColor: 'lightblue'}}>About page</Text>
-    </View>
+import { Button, StyleSheet, Text, View } from 'react-native';
+import { RootStackParamList } from '../navigation/stack/allscreen';
 
-   </MainLayout>
-  )
+type PropsType = NativeStackScreenProps<RootStackParamList, "About">;
+
+const About = ({ navigation }: PropsType) => {
+    return (
+        <MainLayout>
+            <View style={style.container}>
+                <Text>About page</Text>
+                <View style={style.btn}>
+                    <Button title='Go to Home' onPress={() => navigation.goBack()} />
+                    <Button title="Go to Detial" onPress={() => navigation.navigate("Detialform", { id: "2", name: "Shaharyar" })} />
+                </View>
+            </View>
+
+        </MainLayout>
+    )
 }
 
-export default About
+export default About;
+const style= StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  btn:{
+    flexDirection: 'row',
+    gap: 10,
+    marginTop: 20,}
+})
