@@ -1,6 +1,6 @@
 import About from '@/app/Screen/About';
+import Detialform from '@/app/Screen/Detial';
 import Home from '@/app/Screen/home';
-import Detial from '@/components/detial';
 import MainLayout from '@/components/mainLayout';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
@@ -10,7 +10,7 @@ import React from 'react';
 export type RootStackParamList = {
     Home: undefined;
     About: undefined;
-    Detial: {id: string; name: string};
+    Detialform: {id: string; name: string};
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -21,7 +21,7 @@ const Allscreen = () => {
          <Stack.Navigator >
             <Stack.Screen name="Home" component={Home}/>
             <Stack.Screen name= "About" component={About} />
-            <Stack.Screen name= "Detial" component={Detial} />
+            <Stack.Screen name= "Detialform" component={Detialform} />
            </Stack.Navigator>
     </MainLayout>
   )

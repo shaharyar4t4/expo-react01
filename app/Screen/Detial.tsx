@@ -2,7 +2,7 @@ import MainLayout from '@/components/mainLayout'
 import React from 'react'
 import { Text, View } from 'react-native'
 
-const Detial = () => {
+const Detialform = () => {
   return (
     <MainLayout>
       <View>
@@ -12,4 +12,4 @@ const Detial = () => {
   )
 }
 
-export default Detial
+export default Detialform
