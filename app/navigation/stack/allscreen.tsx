@@ -1,5 +1,6 @@
 import About from '@/app/Screen/About';
 import Detialform from '@/app/Screen/Detial';
+import Effect from '@/app/Screen/Effect';
 import Home from '@/app/Screen/home';
 import MainLayout from '@/components/mainLayout';
 import Fontisto from '@expo/vector-icons/Fontisto';
@@ -13,6 +14,7 @@ export type RootStackParamList = {
   Home: undefined;
   About: undefined;
   Detialform: { id: string; name: string };
+  Effect: undefined;
 
 };
 
@@ -43,7 +45,8 @@ const Allscreen = () => {
         <Stack.Screen name="Detialform" component={Detialform} options={({route})=>({
             title: route.params.name,
         })}/>
-      </Stack.Navigator>
+        <Stack.Screen name ="Effect" component={Effect}/>
+        </Stack.Navigator>
     </MainLayout>
   )
 }
