@@ -6,20 +6,28 @@ const Effect = () => {
     const [countTwo, setCountTwo] = useState<number>(0);
 
     // //this effect will run every time the component renders
-    useEffect(() => {
-        console.log('Effect updated');
-    });
+    // useEffect(() => {
+    //     console.log('Effect updated');
+    // });
 
     // // This effect will run only once when the component mounts
     useEffect(() => {
         console.log('Effect Mounted');
 
+        // This function will run when the component unmounts
+        // or before the next effect runs
+
+        // in short ye function cleanup hota hai means koi screen ap chala jayao 
+        return () => {
+            console.log('Effect Unmounted');
+
+        }
     }, []);
     // this effect will run when the count state changes
-    useEffect(() => {
+    // useEffect(() => {
 
-        console.log('Effect updated');
-    }, [count]);
+    //     console.log('Effect updated');
+    // }, [count]);
 
 
     console.log('component rendered');
