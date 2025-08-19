@@ -5,15 +5,21 @@ const Effect = () => {
     const [count, setCount] = useState<number>(0);
     const [countTwo, setCountTwo] = useState<number>(0);
 
-    
+    // //this effect will run every time the component renders
     useEffect(() => {
         console.log('Effect updated');
-    }); 
-    // This effect will run only once when the component mounts
-    // useEffect(() => {
-    //     console.log('Effect Mounted');
+    });
 
-    // }, []);
+    // // This effect will run only once when the component mounts
+    useEffect(() => {
+        console.log('Effect Mounted');
+
+    }, []);
+    // this effect will run when the count state changes
+    useEffect(() => {
+
+        console.log('Effect updated');
+    }, [count]);
 
 
     console.log('component rendered');
@@ -33,7 +39,7 @@ const Effect = () => {
 
             <TouchableOpacity style={styles.btn}
                 onPress={() => {
-                    setCount(prev => prev + 1);
+                    setCountTwo(prev => prev + 1);
                 }}>
                 <Text style={styles.txt}>Count: {countTwo}</Text>
             </TouchableOpacity>
