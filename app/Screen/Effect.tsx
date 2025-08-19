@@ -1,10 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const Effect = () => {
     const [count, setCount] = useState<number>(0);
+    const [countTwo, setCountTwo] = useState<number>(0);
 
+    
+    useEffect(() => {
+        console.log('Effect updated');
+    }); 
+    // This effect will run only once when the component mounts
+    // useEffect(() => {
+    //     console.log('Effect Mounted');
+
+    // }, []);
+
+
+    console.log('component rendered');
     return (
+
         <View style={styles.container}>
             <Text style={
                 styles.txt
@@ -15,7 +29,13 @@ const Effect = () => {
                     setCount(prev => prev + 1);
                 }}>
                 <Text style={styles.txt}>Count: {count}</Text>
+            </TouchableOpacity>
 
+            <TouchableOpacity style={styles.btn}
+                onPress={() => {
+                    setCount(prev => prev + 1);
+                }}>
+                <Text style={styles.txt}>Count: {countTwo}</Text>
             </TouchableOpacity>
         </View>
     )
