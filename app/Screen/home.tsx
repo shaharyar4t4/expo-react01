@@ -17,6 +17,9 @@ const Home = ({ navigation }: PropsType) => {
           <Button title='Go to Effect' onPress={() => navigation.navigate("Effect")} />
           <Button title="Go to Detial" onPress={() => navigation.navigate("Detialform", { id: "1", name: "Shaharyar" })} />
         </View>
+        <View style={style.apibtn}>
+          <Button title='Go to Ramdom Quote' onPress={() => navigation.navigate("RamdonQuote")} />
+        </View>
       </View>
 
     </MainLayout>
@@ -35,5 +38,8 @@ const style = StyleSheet.create({
     flexDirection: 'row',
     gap: 10,
     marginTop: 20,
+  },
+  apibtn:{
+   marginTop: 20,
   }
 })

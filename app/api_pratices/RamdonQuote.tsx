@@ -1,57 +1,58 @@
+import MainLayout from '@/components/mainLayout';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
+
+interface IQuote {
+    id: number;
+    quote: string;
+    author: string;
+}
+
+
 const RamdonQuote = () => {
-    const [count, setCount] = useState<number>(0);
-    const [countTwo, setCountTwo] = useState<number>(0);
+    const [quote, setquote] = useState<IQuote>({
+        id: 0,
+        quote: "",
+        author: ""
+    });
 
-    // //this effect will run every time the component renders
-    // useEffect(() => {
-    //     console.log('Effect updated');
-    // });
-
-    // // This effect will run only once when the component mounts
     useEffect(() => {
-        console.log('Effect Mounted');
+      RamdonQuote();
+    }, [])
 
-        // This function will run when the component unmounts
-        // or before the next effect runs
 
-        // in short ye function cleanup hota hai means koi screen ap chala jayao 
-        return () => {
-            console.log('Effect Unmounted');
+    const RamdonQuote = async () => {
+        try {
+            const res = await fetch("https://dummyjson.com/quotes/random");
+            const response = await res.json();
+            setquote(response);
+            // console.log("Response --> ", response);
+        } catch (error) {
+            console.log("Error --> ", error);
 
         }
-    }, []);
-    // this effect will run when the count state changes
-    // useEffect(() => {
-
-    //     console.log('Effect updated');
-    // }, [count]);
+    }
 
 
-    console.log('component rendered');
     return (
+        <MainLayout>
+            <View style={styles.container}>
 
-        <View style={styles.container}>
-            <Text style={
-                styles.txt
-            }>Effect Screen</Text>
+                {/* This is a static quote, you can replace it with a dynamic one from an API */}
+                <View style={styles.quote}>
+                    <Text style={styles.text}>{quote.quote}</Text>
+                    <Text style={styles.name}>- {quote.author}</Text>
+                </View>
+                <View>
+                    <TouchableOpacity style={styles.button} onPress={RamdonQuote}>
+                        <Text style={styles.btnText}> Generate the Quote</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
 
-            <TouchableOpacity style={styles.btn}
-                onPress={() => {
-                    setCount(prev => prev + 1);
-                }}>
-                <Text style={styles.txt}>Count: {count}</Text>
-            </TouchableOpacity>
+        </MainLayout>
 
-            <TouchableOpacity style={styles.btn}
-                onPress={() => {
-                    setCountTwo(prev => prev + 1);
-                }}>
-                <Text style={styles.txt}>Count: {countTwo}</Text>
-            </TouchableOpacity>
-        </View>
     )
 }
 
@@ -59,17 +60,35 @@ export default RamdonQuote
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        padding: 20,
-        alignItems: 'center',
+        padding: 10
     },
-    txt: {
-        fontSize: 20,
-    },
-    btn: {
-        backgroundColor: '#C4C4C4',
+    quote: {
         padding: 10,
-        borderRadius: 10,
-        marginTop: 20,
+        borderWidth: 1,
+        borderColor: "#000",
+        borderRadius: 20,
+        marginTop: 40,
+        marginBottom: 20
+    },
+    name: {
+        textAlign: "right",
+        color: "#000"
+    },
+    text: {
+        color: "#000",
+        fontSize: 24
+    },
+    button: {
+
+        borderWidth: 1,
+        padding: 10,
+        backgroundColor: "#000",
+        borderRadius: 30
+    },
+    btnText: {
+        textAlign: "center",
+        fontSize: 18,
+        color: "#fff"
     }
-})
+}
+);

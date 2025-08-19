@@ -1,3 +1,4 @@
+import RamdonQuote from '@/app/api_pratices/RamdonQuote';
 import About from '@/app/Screen/About';
 import Detialform from '@/app/Screen/Detial';
 import Effect from '@/app/Screen/Effect';
@@ -15,6 +16,7 @@ export type RootStackParamList = {
   About: undefined;
   Detialform: { id: string; name: string };
   Effect: undefined;
+  RamdonQuote: undefined;
 
 };
 
@@ -46,6 +48,7 @@ const Allscreen = () => {
             title: route.params.name,
         })}/>
         <Stack.Screen name ="Effect" component={Effect}/>
+        <Stack.Screen name= "RamdonQuote" component={RamdonQuote}/>
         </Stack.Navigator>
     </MainLayout>
   )
