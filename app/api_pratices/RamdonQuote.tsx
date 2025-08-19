@@ -1,6 +1,7 @@
 import MainLayout from '@/components/mainLayout';
-import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
+import React, { useCallback, useState } from 'react';
+import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 
 interface IQuote {
@@ -16,23 +17,7 @@ const RamdonQuote = () => {
     });
     const [loader, setLoader] = useState<boolean>(false);
     const [toggle, setToggle] = useState<boolean>(true);
-
-    useEffect(() => {
-       let interval = setInterval(() => {
-        RamdonQuote();
-        console.log("Api called");
-        }, 10000)
-
-        // this is very important to clear the interval when the component unmounts, if it is not cleared, it will keep calling the api every 10 seconds even if the component is unmounted
-        // this will prevent memory leaks and unnecessary api calls
-        return () => {
-            clearInterval(interval);
-            console.log("Interval cleared");
-        }
-    }, [toggle])
-
-
-    const RamdonQuote = async () => {
+     const RamdonQuote = async () => {
         setLoader(true);
         try {
             const res = await fetch("https://dummyjson.com/quotes/random");
@@ -45,6 +30,30 @@ const RamdonQuote = () => {
             setLoader(false);
         }
     }
+
+    // useEffect(() => {
+    //    let interval = setInterval(() => {
+    //     RamdonQuote();
+    //     console.log("Api called");
+    //     }, 10000)
+
+    //     // this is very important to clear the interval when the component unmounts, if it is not cleared, it will keep calling the api every 10 seconds even if the component is unmounted
+    //     // this will prevent memory leaks and unnecessary api calls
+    //     return () => {
+    //         clearInterval(interval);
+    //         console.log("Interval cleared");
+    //     }
+    // }, [toggle])
+
+    useFocusEffect(
+        useCallback(() => {  
+          RamdonQuote();
+          console.log("runing RamdonQuote");
+        }, [])
+    )
+
+
+   
 
     return (
         <MainLayout>
@@ -64,14 +73,14 @@ const RamdonQuote = () => {
 
                 </View>
                 <View>
-                    {/* <TouchableOpacity style={styles.button} onPress={()=>{setToggle(!toggle)}}>
+                     {/* <TouchableOpacity style={styles.button} onPress={()=>{setToggle(!toggle)}}>
                         <Text style={styles.btnText}> Generate the Quote</Text>
-                    </TouchableOpacity> */}
+                    </TouchableOpacity>  */}
 
                     {/* This button is used to generate a new quote by using  the Ramdon Quote */}
-                    {/* <TouchableOpacity style={styles.button} onPress={RamdonQuote}>
+                    <TouchableOpacity style={styles.button} onPress={RamdonQuote}>
                         <Text style={styles.btnText}> Generate the Quote</Text>
-                    </TouchableOpacity> */}
+                    </TouchableOpacity>
                 </View>
             </View>
 
