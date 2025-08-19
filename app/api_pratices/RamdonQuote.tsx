@@ -1,6 +1,6 @@
 import MainLayout from '@/components/mainLayout';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 
 interface IQuote {
@@ -8,32 +8,33 @@ interface IQuote {
     quote: string;
     author: string;
 }
-
-
 const RamdonQuote = () => {
     const [quote, setquote] = useState<IQuote>({
         id: 0,
         quote: "",
         author: ""
     });
+    const [loader, setLoader] = useState<boolean>(false);
+    const [toggle, setToggle] = useState<boolean>(true);
 
     useEffect(() => {
-      RamdonQuote();
-    }, [])
+        RamdonQuote();
+    }, [toggle])
 
 
     const RamdonQuote = async () => {
+        setLoader(true);
         try {
             const res = await fetch("https://dummyjson.com/quotes/random");
             const response = await res.json();
             setquote(response);
-            // console.log("Response --> ", response);
+            setLoader(false);
+            console.log("Response --> ", response);
         } catch (error) {
             console.log("Error --> ", error);
-
+            setLoader(false);
         }
     }
-
 
     return (
         <MainLayout>
@@ -41,11 +42,19 @@ const RamdonQuote = () => {
 
                 {/* This is a static quote, you can replace it with a dynamic one from an API */}
                 <View style={styles.quote}>
-                    <Text style={styles.text}>{quote.quote}</Text>
-                    <Text style={styles.name}>- {quote.author}</Text>
+                    {
+                        loader ? <View>
+                            <ActivityIndicator size="large" color="#0000ff" />
+                        </View> : 
+                        <View>
+                            <Text style={styles.text}>{quote.quote}</Text>
+                            <Text style={styles.name}>- {quote.author}</Text>
+                        </View>
+                    }
+
                 </View>
                 <View>
-                    <TouchableOpacity style={styles.button} onPress={RamdonQuote}>
+                    <TouchableOpacity style={styles.button} onPress={()=>{setToggle(!toggle)}}>
                         <Text style={styles.btnText}> Generate the Quote</Text>
                     </TouchableOpacity>
                 </View>
