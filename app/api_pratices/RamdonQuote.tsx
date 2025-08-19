@@ -57,6 +57,11 @@ const RamdonQuote = () => {
                     <TouchableOpacity style={styles.button} onPress={()=>{setToggle(!toggle)}}>
                         <Text style={styles.btnText}> Generate the Quote</Text>
                     </TouchableOpacity>
+
+                    {/* This button is used to generate a new quote by using  the Ramdon Quote */}
+                    {/* <TouchableOpacity style={styles.button} onPress={RamdonQuote}>
+                        <Text style={styles.btnText}> Generate the Quote</Text>
+                    </TouchableOpacity> */}
                 </View>
             </View>
 
