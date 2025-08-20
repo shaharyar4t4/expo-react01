@@ -21,7 +21,7 @@ const Home = ({ navigation }: PropsType) => {
           <Button title='Go to Ramdom Quote' onPress={() => navigation.navigate("RamdonQuote")} />
         </View>
         <View style={style.apibtn}>
-          <Button title='Product Page' onPress={() => navigation.navigate("Product_api")} />
+          <Button title='Product Page' onPress={() => navigation.navigate("ProductDetial")} />
         </View>
       </View>
 
