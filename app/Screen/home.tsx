@@ -20,6 +20,9 @@ const Home = ({ navigation }: PropsType) => {
         <View style={style.apibtn}>
           <Button title='Go to Ramdom Quote' onPress={() => navigation.navigate("RamdonQuote")} />
         </View>
+        <View style={style.apibtn}>
+          <Button title='Product Page' onPress={() => navigation.navigate("Product_api")} />
+        </View>
       </View>
 
     </MainLayout>

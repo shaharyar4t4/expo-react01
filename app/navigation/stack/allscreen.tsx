@@ -1,3 +1,4 @@
+import Product_api from '@/app/api_pratices/product_api';
 import RamdonQuote from '@/app/api_pratices/RamdonQuote';
 import About from '@/app/Screen/About';
 import Detialform from '@/app/Screen/Detial';
@@ -17,6 +18,7 @@ export type RootStackParamList = {
   Detialform: { id: string; name: string };
   Effect: undefined;
   RamdonQuote: undefined;
+  Product_api: undefined;
 
 };
 
@@ -49,6 +51,8 @@ const Allscreen = () => {
         })}/>
         <Stack.Screen name ="Effect" component={Effect}/>
         <Stack.Screen name= "RamdonQuote" component={RamdonQuote}/>
+        <Stack.Screen name= "Product_api" component={Product_api}/>
+
         </Stack.Navigator>
     </MainLayout>
   )
