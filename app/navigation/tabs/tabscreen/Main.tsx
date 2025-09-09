@@ -11,7 +11,7 @@ const Main = () => {
   return (
     <MainLayout>
       <View style={style.container}>
-        <Text>Home page</Text>
+        <Text>Main Page</Text>
         <View style={style.btn}>
           {/* <Button title='Go to About' onPress={() => navigation.navigate("About")} /> */}
 

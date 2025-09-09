@@ -11,7 +11,7 @@ const Setting = () => {
   return (
     <MainLayout>
       <View style={style.container}>
-        <Text>Home page</Text>
+        <Text>Setting page</Text>
         <View style={style.btn}>
           {/* <Button title='Go to About' onPress={() => navigation.navigate("About")} /> */}
 
