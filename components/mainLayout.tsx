@@ -7,7 +7,7 @@ type MainLayoutProps = PropsWithChildren<{
 
 }>;
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+const MainLayout: React.FC<MainLayoutProps> = ({children }) => {
     return (
         // this particular is same for every mobile platform
         // safeAreaProvider is used to handle the safe area insets on devices with notches or rounded corners
