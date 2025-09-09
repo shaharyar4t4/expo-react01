@@ -1,4 +1,4 @@
-import Allscreen from "./navigation/stack/allscreen";
+import { TabScreen } from "./navigation/tabs/TabScreen";
 
 
 export default function RootLayout() {
@@ -7,7 +7,8 @@ export default function RootLayout() {
       // <Class1/>
       // <Class2/>
       // <List/>
-      <Allscreen/>
+      // <Allscreen/>
+      <TabScreen/>
    );
 
 }
