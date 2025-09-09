@@ -30,7 +30,6 @@ export const TabScreen = () => {
                 headerShown: false,
                 tabBarLabelStyle: { fontSize: 12, fontWeight: 'bold' },
                 // tabBarPosition: 'bottom',
-
             }}
         >
             <Tab.Screen name={"Main"} component={Main}
