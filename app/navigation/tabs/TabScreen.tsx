@@ -27,6 +27,10 @@ export const TabScreen = () => {
             screenOptions={{
                 tabBarActiveTintColor: 'red',
                 tabBarInactiveTintColor: 'green',
+                headerShown: false,
+                tabBarLabelStyle: { fontSize: 12, fontWeight: 'bold' },
+                // tabBarPosition: 'bottom',
+
             }}
         >
             <Tab.Screen name={"Main"} component={Main}
