@@ -4,6 +4,7 @@ import About from '@/app/Screen/About';
 import Detialform from '@/app/Screen/Detial';
 import Effect from '@/app/Screen/Effect';
 import Home from '@/app/Screen/home';
+import Premission from '@/app/Screen/Premission';
 import MainLayout from '@/components/mainLayout';
 import Fontisto from '@expo/vector-icons/Fontisto';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -19,7 +20,7 @@ export type RootStackParamList = {
   Effect: undefined;
   RamdonQuote: undefined;
   ProductDetial: undefined;
-  
+  Premission: undefined;  
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -52,6 +53,7 @@ const Allscreen = () => {
         <Stack.Screen name ="Effect" component={Effect}/>
         <Stack.Screen name= "RamdonQuote" component={RamdonQuote}/>
         <Stack.Screen name= "ProductDetial" component={ProductDetial}/>
+        <Stack.Screen name= "Premission" component={Premission}/>
 
         </Stack.Navigator>
     </MainLayout>
