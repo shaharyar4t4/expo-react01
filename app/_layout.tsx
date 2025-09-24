@@ -1,4 +1,4 @@
-import { DrawerScreen } from "./navigation/drawer/DrawerScreen";
+import Allscreen from "./navigation/stack/allscreen";
 
 
 export default function RootLayout() {
@@ -7,9 +7,9 @@ export default function RootLayout() {
       // <Class1/>
       // <Class2/>
       // <List/>
-      // <Allscreen/>
+      <Allscreen/>
       // <TabScreen/>
-      <DrawerScreen/>
+      // <DrawerScreen/>
    );
 
 }
